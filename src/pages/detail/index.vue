@@ -295,15 +295,23 @@
               <view class="formula-card">
                 <text class="formula-name">个税缴纳总额 {{ plainMoney(result.totalTaxAnnual) }}</text>
                 <text class="formula-exp">
-                  = 工资薪金累计预扣个税 {{ plainMoney(result.salaryTaxAnnual) }} ≈ 累计纳税所得额({{ plainMoney(cumulativeTaxableIncome) }}) × 预扣率({{
-                    Math.round(applicableTaxBracket.rate * 100)
-                  }}%)<text class="formula-help formula-help-inline" @click.stop="showTaxRateModal = true">?</text>
+                  1、工资薪金累计预扣个税 <text class="formula-strong">{{ plainMoney(result.salaryTaxAnnual) }}</text> ≈ 累计纳税所得额({{
+                    plainMoney(cumulativeTaxableIncome)
+                  }}) × 预扣率({{ Math.round(applicableTaxBracket.rate * 100) }}%)<text
+                    class="formula-help formula-help-inline"
+                    @click.stop="showTaxRateModal = true"
+                    >?</text
+                  >
                   − 速算扣除数({{ plainMoney(applicableTaxBracket.quick) }})
                 </text>
                 <text class="formula-exp" v-if="(result.annualBonus || 0) > 0">
-                  + 年终奖单独计税 {{ plainMoney(result.bonusTax) }} = 年终奖({{ plainMoney(result.annualBonus) }}) × 税率({{
-                    Math.round(applicableBonusBracket.rate * 100)
-                  }}%)<text class="formula-help formula-help-inline" @click.stop="showBonusRateModal = true">?</text>
+                  2、年终奖单独计税 <text class="formula-strong">{{ plainMoney(result.bonusTax) }}</text> = 年终奖({{
+                    plainMoney(result.annualBonus)
+                  }}) × 税率({{ Math.round(applicableBonusBracket.rate * 100) }}%)<text
+                    class="formula-help formula-help-inline"
+                    @click.stop="showBonusRateModal = true"
+                    >?</text
+                  >
                   − 速算扣除数({{ plainMoney(applicableBonusBracket.quick) }})
                 </text>
               </view>
@@ -1517,22 +1525,22 @@ function openHelloCoder() {
 .formula-detail {
   display: flex;
   flex-direction: column;
-  gap: 10rpx;
+  gap: 6rpx;
 }
 
 .formula-card {
   background: #ffffff;
   border: 1rpx solid #e5e7eb;
   border-radius: 10rpx;
-  padding: 12rpx 14rpx;
+  padding: 8rpx 14rpx;
 }
 
 .formula-name {
   display: block;
-  font-size: 28rpx;
+  font-size: 22rpx;
   color: #0f172a;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.25;
 }
 
 .formula-exp {
@@ -1541,6 +1549,11 @@ function openHelloCoder() {
   font-size: 22rpx;
   color: #64748b;
   line-height: 1.45;
+}
+
+.formula-strong {
+  color: #0f172a;
+  font-weight: 700;
 }
 
 .formula-exp-total {
@@ -1643,8 +1656,9 @@ function openHelloCoder() {
 }
 
 .tax-rate-row.active {
-  background: #eff6ff;
-  border-left: 6rpx solid #0ea5e9;
+  background: #dbeafe;
+  border-left: 6rpx solid #2563eb;
+  box-shadow: inset 0 0 0 1rpx #93c5fd;
 }
 
 .tax-rate-row.active .col {
