@@ -1,7 +1,7 @@
 {
     "name" : "算算薪 - 薪资计算器",
     "appid" : "__UNI__FDED954",
-    "description" : "基于 uni-app 的税后薪资计算工具",
+    "description" : "算算薪：在线税后工资与个人所得税计算器，支持累计预扣、五险一金、年终奖单独计税、专项附加扣除与年度到手试算。",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "mp-weixin" : {
@@ -12,7 +12,7 @@
         }
     },
     "h5" : {
-        "title" : "算算薪 - 薪资计算器"
+        "title" : "算算薪 - 薪资计算器 | 税后工资与个税在线计算"
     },
     "vueVersion" : "3"
 }
